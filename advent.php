@@ -24,4 +24,21 @@ function partOne($data) {
     echo $answer;
 }
 
-partOne($raw);
+function partTwo($data) {
+
+    $answer = "";
+
+    for ($i=0; $i < strlen($data)-13; $i++) { 
+        
+        $buffer = substr($data, $i, 14);
+    
+        $haystack = str_split($buffer, 1);
+    
+        $filteredHaystack = array_unique($haystack);
+        if (count($filteredHaystack) === count($haystack)) {
+            $answer = $i + 14;
+            break;
+        }
+    }
+    echo $answer;
+}
